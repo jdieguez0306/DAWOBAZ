@@ -64,27 +64,27 @@ button {
 ========================= */
 
 .announcement-bar {
-    background: var(--black);
-    color: var(--white);
+    background: var(--white);
+    color: var(--black);
 }
 
 .announcement-inner {
     max-width: 1500px;
-    min-height: 34px;
+    min-height: 50px;
     margin: 0 auto;
     padding: 7px 35px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
+    gap: 10px;
 }
 
 .announcement-inner p {
     margin: 0;
     text-transform: uppercase;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.03em;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
 }
 
 .announcement-inner p span {
@@ -114,63 +114,57 @@ button {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: var(--white);
-    border-bottom: 1px solid #e8e8e8;
+    background: var(--dark);
+    border-bottom: 1px solid #2a2a2a;
 }
 
 .header-inner {
     max-width: 1500px;
-    min-height: 84px;
+    min-height: 110px;
     margin: 0 auto;
-    padding: 15px 35px;
+    padding: 14px 40px;
+
+    display: grid;
+    grid-template-columns: 220px 1fr 90px;
+    align-items: center;
+    gap: 30px;
+}
+
+.logo {
     display: flex;
     align-items: center;
-    gap: 35px;
+    justify-content: flex-start;
 }
 
-.logo,
-.footer-logo {
-    flex-shrink: 0;
-    text-decoration: none;
-    font-size: 33px;
-    font-weight: 900;
-    letter-spacing: -0.06em;
-}
-
-.logo span,
-.footer-logo span {
-    color: var(--black);
-}
-
-.logo strong,
-.footer-logo strong {
-    color: var(--pink);
+.logo img {
+    width: 175px;
+    height: auto;
+    display: block;
 }
 
 .main-nav {
-    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 25px;
+    gap: 40px;
 }
 
 .main-nav a {
     position: relative;
-    padding: 31px 0;
-    color: var(--black);
+    padding: 16px 0;
+    color: white;
     text-decoration: none;
     text-transform: uppercase;
-    font-size: 11px;
+    font-size: 15px;
     font-weight: 700;
     white-space: nowrap;
 }
 
 .main-nav a::after {
     content: "";
-    position: absolute;
+    position: relative;
     right: 0;
-    bottom: 20px;
+    bottom: 7px;
     left: 0;
     height: 2px;
     background: var(--pink);
@@ -186,26 +180,25 @@ button {
 .header-actions {
     display: flex;
     align-items: center;
-    gap: 18px;
+    justify-content: flex-end;
+    gap: 20px;
 }
 
 .header-actions button,
 .header-actions a {
     position: relative;
-    padding: 0;
-    border: 0;
-    color: var(--black);
+    color: var(--pink);
     background: transparent;
-    text-decoration: none;
-    font-size: 20px;
+    border: 0;
+    font-size: 23px;
 }
 
 .cart-count {
     position: absolute;
     top: -8px;
-    right: -10px;
-    width: 17px;
-    height: 17px;
+    right: -15px;
+    width: 20px;
+    height: 20px;
     display: grid;
     place-items: center;
     border-radius: 50%;
