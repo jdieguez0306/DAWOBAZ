@@ -71,4 +71,43 @@ document.addEventListener("DOMContentLoaded", () => {
     carousel.addEventListener("mouseleave", startAutoPlay);
 
     startAutoPlay();
+    // Dropdown menu functionality
+    const dropdownToggle = document.querySelector(".dropdown-toggle");
+    const dropdownMenu = document.querySelector(".dropdown-menu");
+
+    if (dropdownToggle && dropdownMenu) {
+
+        dropdownToggle.addEventListener("click", () => {
+
+            const isOpen =
+                dropdownToggle.getAttribute("aria-expanded") === "true";
+
+            dropdownToggle.setAttribute(
+                "aria-expanded",
+                String(!isOpen)
+            );
+
+            dropdownMenu.classList.toggle("open");
+
+        });
+
+        document.addEventListener("click", (event) => {
+
+            const dropdown =
+                document.querySelector(".nav-dropdown");
+
+            if (dropdown && !dropdown.contains(event.target)) {
+
+                dropdownToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                dropdownMenu.classList.remove("open");
+
+            }
+
+        });
+
+    }
 });

@@ -64,56 +64,118 @@
           >
       </a>
       <!-- try adding forms to shop as a whole with  all items undeer it-->
-      <nav class="main-nav" aria-label="Main navigation">
-        <a href="index.html" class="active">Home </a>
-        <a href="recital.html">Recital </a>
-        <a href="apparel.html">Apparel </a>
-        <a href="bags.html">Bags </a>
-        <a href="jackets.html">Jackets </a>
-        <a href="studio-store.html">Studio Store </a>
-        <a href="bling.html"> Bling </a>
-        <a href="custom-design.html"> Custom Design </a>
-        <a href="contact.html"> Contact </a>
-      </nav>
+<nav class="main-nav" aria-label="Main navigation">
 
-      <div class="header-actions">
-        <button type="button" aria-label="Search">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
+  <a href="index.html" class="active">Home</a>
 
-        <a href="order.html" aria-label="Shopping cart">
-          <i class="fa-solid fa-bag-shopping"></i>
-          <span class="cart-count">0</span>
-        </a>
-      </div>
+  <div class="nav-dropdown">
+    <button
+      class="dropdown-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-haspopup="true"
+    >
+      Shop
+      <i class="fa-solid fa-chevron-down"></i>
+    </button>
 
+    <div class="dropdown-menu">
+      <a href="https://www.dawobaz.com/recital.html">Recital Shirts</a>
+      <a href="https://www.dawobaz.com/apparel.html">Custom Apparel</a>
+      <a href="https://www.dawobaz.com/bags.html">Dance Bags</a>
+      <a href="https://www.dawobaz.com/jackets.html">Team Jackets</a>
+      <a href="https://www.dawobaz.com/bling.html">Bling</a>
+      <a href="https://www.dawobaz.com/holiday.html">Holiday Designs</a>
     </div>
-  </header>
+  </div>
+
+  <a href="studio_store.html">Studio Store</a>
+  <div class="nav-dropdown">
+    <button
+      class="dropdown-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-haspopup="true"
+    >
+      How To Order
+      <i class="fa-solid fa-chevron-down"></i>
+    </button>
+
+    <div class="dropdown-menu">
+      <a href="https://www.dawobaz.com/orderguide_dawobaz.html">Order Guide</a>
+      <a href="https://www.dawobaz.com/nameguide_dawobaz.html">Name Guide</a>
+      <a href="https://www.dawobaz.com/dwform1.php">Request Artwork</a>
+      <a href="https://www.dawobaz.com/size_run_request.html">Request a Size Run</a>
+      <a href="http://www.dawobaz.com/dwform_order.php">Start an Order</a>
+    </div>
+  </div>
+  <a href="custom-design.html">Custom Design</a>
+  <a href="contact.html">Contact Us</a>
+
+</nav>
+
+<div class="header-actions">
+  <button
+    class="search-button"
+    type="button"
+    aria-label="Open search"
+    aria-expanded="false"
+    aria-controls="site-search-container"
+  >
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+
+  <a href="order.html" aria-label="Shopping cart">
+    <i class="fa-solid fa-bag-shopping"></i>
+    <span class="cart-count">0</span>
+  </a>
+
+  <div class="search-container" id="site-search-container">
+    <label class="sr-only" for="site-search">
+      Search the website
+    </label>
+
+    <input
+      type="search"
+      id="site-search"
+      placeholder="Search products..."
+      autocomplete="off"
+    >
+  </div>
+</div>
+</header>
 
   <main>
+
     <!-- Hero -->
      <!-- New carousel section-->
      <section class="hero-carousel" aria-label="Featured DAWOBAZ products">
 
   <div class="carousel-slide active">
     <img
-      src="images/homepage/hero-apparel.jpg"
+      src="images\Carousel Images\carousel_slide1.png"
       alt="Dance team wearing custom apparel"
     >
 
     <div class="carousel-overlay"></div>
 
     <div class="carousel-content">
-      <p class="carousel-eyebrow">Custom Dance Apparel</p>
+      <p class="carousel-eyebrow">Bring your vision to life</p>
 
-      <h1>Custom Apparel for Every Stage</h1>
+      <h1>Custom Apparel Made Simple</h1>
 
       <p>
-        Recital shirts, team apparel, jackets, bags, and more
-        designed for your studio.
+        Dance World Bazaar is your one-stop partner for creating apparel your
+        dancers will love. Request a free size run, submit your artwork, or let our designers bring your vision to life.
       </p>
 
       <div class="carousel-buttons">
+        <a
+          class="button button-outline"
+          href="https://www.dawobaz.com/size_run_request.html"
+          >
+          Request Size Run
+        </a>
         <a
           class="button button-pink"
           href="http://www.dawobaz.com/dwform_order.php"
@@ -121,73 +183,89 @@
           Start an Order
         </a>
 
-        <a class="button button-outline" href="apparel.html">
-          Shop Apparel
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <div class="carousel-slide">
-    <img
-      src="images/homepage/hero-bags.jpg"
-      alt="Personalized dance bags"
-    >
-
-    <div class="carousel-overlay"></div>
-
-    <div class="carousel-content">
-      <p class="carousel-eyebrow">Personalized for Your Team</p>
-
-      <h2>Dance Bags Made to Stand Out</h2>
-
-      <p>
-        Custom bags designed with your studio colors,
-        artwork, names, and sparkling details.
-      </p>
-
-      <div class="carousel-buttons">
-        <a class="button button-pink" href="bags.html">
-          Explore Bags
-        </a>
-
-        <a class="button button-outline" href="contact.html">
-          Contact Us
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <div class="carousel-slide">
-    <img
-      src="images/homepage/hero-bling.jpg"
-      alt="Rhinestone dance apparel details"
-    >
-
-    <div class="carousel-overlay"></div>
-
-    <div class="carousel-content">
-      <p class="carousel-eyebrow">Add Some Sparkle</p>
-
-      <h2>Bling That Shines On and Off Stage</h2>
-
-      <p>
-        Rhinestones, crystals, and custom designs that bring
-        your apparel to life.
-      </p>
-
-      <div class="carousel-buttons">
-        <a class="button button-pink" href="bling.html">
-          Explore Bling
-        </a>
-
-        <a class="button button-outline" href="custom-design.html">
+        <a class="button button-outline" 
+        href="http://www.dawobaz.com/dwform1.php">
           Request Artwork
         </a>
       </div>
     </div>
   </div>
 
+  <div class="carousel-slide">
+    <img
+      src="images\Homepage Icons\All-Recital_tshirt_designs.png"
+      alt="Recital shirts with custom designs and names"
+    >
+
+    <div class="carousel-overlay"></div>
+
+    <div class="carousel-content">
+      <p class="carousel-eyebrow">Recital Shirts Made Simple</p>
+
+      <h2>Recital Shirts Made to Stand Out</h2>
+
+      <p>
+        Make your recital shine with our custom-designed shirts.
+      </p>
+
+      <div class="carousel-buttons">
+        <a class="button button-pink" href="https://www.dawobaz.com/recital.html">
+          Browse Recital Designs
+        </a>
+      <!-- if there are any ongoing deals, input here-->
+      </div>
+    </div>
+  </div>
+
+  <div class="carousel-slide">
+    <img
+      src="images\Carousel Images\studio_store_slide3.png"
+      alt="studio stores details"
+    >
+
+    <div class="carousel-overlay"></div>
+
+    <div class="carousel-content">
+      <p class="carousel-eyebrow">Online Studio Store</p>
+
+      <h2>Your Own Online Studio Store</h2>
+
+      <p>
+        Manage your studio, not the orders. Let dancers and families order directly through a personalized online store created just for your studio.
+      </p>
+
+      <div class="carousel-buttons">
+        <a class="button button-pink" href="https://www.dawobaz.com/studio_store.html">
+          Check it Out!
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="carousel-slide">
+    <img
+      src="images\Carousel Images\Holiday_design_carousel.png"
+      alt="Recital shirts with custom designs and names"
+    >
+
+    <div class="carousel-overlay"></div>
+
+    <div class="carousel-content">
+      <p class="carousel-eyebrow">Holiday Collection</p>
+
+      <h2>Seasonal Designs</h2>
+
+      <p>
+        Celebrate the holidays with our festive collection of recital shirts, jackets, and bags.
+      </p>
+
+      <div class="carousel-buttons">
+        <a class="button button-pink" href="https://www.dawobaz.com/holiday.html">
+          View Holiday Collections
+        </a>
+      <!-- if there are any ongoing deals, input here-->
+      </div>
+    </div>
+  </div>
   <button
     class="carousel-arrow carousel-arrow-left"
     type="button"
@@ -208,55 +286,11 @@
     <button class="carousel-dot active" type="button" aria-label="Slide 1"></button>
     <button class="carousel-dot" type="button" aria-label="Slide 2"></button>
     <button class="carousel-dot" type="button" aria-label="Slide 3"></button>
+    <button class="carousel-dot" type="button" aria-label="Slide 4"></button>
   </div>
 
 </section>
-    <!-- <section class="hero">
 
-      <img
-        class="hero-image"
-        src="images\Hero Image\hero_temp_image.png"
-        alt="Dance team wearing custom DAWOBAZ apparel"
-      >
-
-      <div class="hero-overlay"></div>
-
-      <div class="hero-content">
-        <h1>
-          Custom Apparel<br>
-          for Every Stage
-        </h1>
-
-        <p>
-          Recital shirts, studio apparel, jackets, bags,
-          logos and more, made just for you.
-        </p>
-
-        <div class="hero-buttons">
-          <a
-          class="button button-outline"
-          href="https://www.dawobaz.com/size_run_request.html"
-          >
-            Request Size Run
-          </a>
-
-          <a
-            class="button button-pink"
-            href="http://www.dawobaz.com/dwform_order.php"
-          >
-            Start an Order
-          </a>
-
-          <a
-            class="button button-outline"
-            href="custom-design.html"
-          >
-            Request Artwork
-          </a>
-        </div>
-      </div> -->
-
-    <!-- </section> -->
     <!-- Product categories -->
     <section class="category-section" id="categories">
 
@@ -267,11 +301,12 @@
       <div class="category-grid">
 
         <a class="category-card" href="recital.html">
-          <img
-            src="images/homepage/recital-shirts.jpg"
-            alt="Custom recital shirts"
-          >
-
+          <div class="category-image">
+            <img
+              src="images\Homepage Icons\recital_tshirt_homepage.png"
+              alt="Custom recital shirts"
+            >
+          </div>
           <div class="category-label">
             <span>Recital Shirts</span>
             <i class="fa-solid fa-arrow-right"></i>
@@ -279,11 +314,12 @@
         </a>
 
         <a class="category-card" href="studio-logos.html">
-          <img
-            src="images\Homepage Icons\custom_logo_home.png"
-            alt="Custom dance studio logos"
-          >
-
+          <div class="category-image">
+            <img
+              src="images\Homepage Icons\custom_logo_home.png"
+              alt="Custom dance studio logos"
+              >
+          </div>
           <div class="category-label">
             <span>Custom Logos</span>
             <i class="fa-solid fa-arrow-right"></i>
@@ -291,10 +327,12 @@
         </a>
 
         <a class="category-card" href="apparel.html">
-          <img
-            src="images/homepage/custom-apparel.jpg"
-            alt="Custom dance apparel"
-          >
+          <div class="category-image">
+            <img
+              src="images\Homepage Icons\custom_apparel_homepage.png"
+              alt="Custom dance apparel"
+            >
+          </div>
 
           <div class="category-label">
             <span>Custom Apparel</span>
@@ -303,10 +341,12 @@
         </a>
 
         <a class="category-card" href="bags.html">
-          <img
-            src="images/homepage/dance-bags.jpg"
-            alt="Personalized dance bags"
-          >
+          <div class="category-image">
+            <img
+              src="images\Homepage Icons\bags_image.png"
+              alt="Personalized dance bags"
+            >
+          </div>  
 
           <div class="category-label">
             <span>Dance Bags</span>
@@ -315,10 +355,12 @@
         </a>
 
         <a class="category-card" href="jackets.html">
-          <img
-            src="images/homepage/dance-jackets.jpg"
-            alt="Custom dance jackets"
-          >
+          <div class="category-image">
+            <img
+              src="images\Homepage Icons\jackets_home.png"
+              alt="Custom dance jackets"
+            >
+          </div>  
 
           <div class="category-label">
             <span>Dance Jackets</span>
@@ -327,10 +369,12 @@
         </a>
 
         <a class="category-card" href="bling.html">
-          <img
-            src="images/homepage/bling-crystals.jpg"
-            alt="Rhinestones, crystals, and custom bling"
-          >
+          <div class="category-image">
+            <img
+              src="images\Homepage Icons\Bling_image.png"
+              alt="Rhinestones, crystals, and custom bling"
+            >
+          </div>  
 
           <div class="category-label">
             <span>Bling & Crystals</span>
@@ -350,7 +394,7 @@
           <h3>Personal Service</h3>
 
           <p>
-            Real people are here to help you every step of the way.
+            Here to help you every step of the way.
           </p>
         </article>
 
@@ -358,6 +402,7 @@
           <i class="fa-solid fa-pencil"></i>
 
           <h3>Custom Artwork</h3>
+          <!--<h3>Free Artwork</h3>-->
 
           <p>
             Unique designs created specifically for your studio or event.
@@ -368,6 +413,7 @@
           <i class="fa-solid fa-tag"></i>
 
           <h3>No Hidden Charges</h3>
+          <!--<h3>No Set Up Fees</h3>-->
 
           <p>
             Transparent pricing and clear communication.
@@ -380,41 +426,46 @@
           <h3>On-Time Delivery</h3>
 
           <p>
-            Reliable delivery for both standard and rush orders.
+            Reliable and fast delivery with $20.00 Shipping.
           </p>
         </article>
 
       </div>
     </section>
-    <!-- Brand story -->
-    <section class="brand-story">
+    <!-- Order guide sections -->
+    <section class="order-guide-section">
 
-      <div class="brand-story-image">
-        <img
-          src="images/homepage/brand-story.jpg"
-          alt="Dance team wearing coordinated studio jackets"
-        >
-      </div>
+  <div class="order-guide-content">
+    <p class="section-label">
+      Simple Ordering Process
+    </p>
 
-      <div class="brand-story-content">
-        <p class="section-label">
-          Made for Dancers. Made to Stand Out.
-        </p>
+    <h2>Everything You Need to Place an Order</h2>
 
-        <h2>Bring Your Vision to Life</h2>
+    <p>
+      Use our guides to review the ordering process, prepare your
+      studio information, and make sure names and personalization
+      details are submitted correctly.
+    </p>
+    <!-- change the links to the new html-->
+    <div class="guide-buttons">
+      <a
+        class="button button-dark"
+        href="https://www.dawobaz.com/orderguide_dawobaz.html"
+      >
+        Order Guide
+      </a>
 
-        <p>
-          From concept to creation, DAWOBAZ helps dance studios,
-          teams, and performers look and feel their best—on stage
-          and everywhere in between.
-        </p>
+      <a
+        class="button button-dark"
+        href="https://www.dawobaz.com/nameguide_dawobaz.html"
+      >
+        Name Guide
+      </a>
+    </div>
+  </div>
 
-        <a class="button button-dark" href="about.html">
-          Learn More About Us
-        </a>
-      </div>
-
-    </section>
+</section>
     <!-- Call to action -->
     <section class="cta-banner">
       <div class="cta-inner">
@@ -439,7 +490,7 @@
             Start an Order
           </a>
 
-          <a class="button button-white-outline" href="contact.html">
+          <a class="button button-white-outline" href="https://www.dawobaz.com/contact.html">
             Contact Us
           </a>
         </div>
@@ -538,5 +589,6 @@
     </p>
   </footer>
 <script src="js/carousel.js"></script>
+<script src="js/search.js"></script>
 </body>
 </html>

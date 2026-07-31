@@ -177,11 +177,45 @@ button {
     transform: scaleX(1);
 }
 
-.header-actions {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 20px;
+header-actions {
+    position: relative;
+}
+
+.search-container {
+    position: absolute;
+    top: calc(100% + 18px);
+    right: 0;
+    z-index: 5000;
+
+    width: 320px;
+    padding: 14px;
+
+    background: white;
+    border: 1px solid #dddddd;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: auto;
+    transform: translateY(-8px);
+
+    transition:
+        opacity 0.2s ease,
+        visibility 0.2s ease,
+        transform 0.2s ease;
+}
+
+.search-container.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.search-container input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #cccccc;
 }
 
 .header-actions button,
@@ -207,6 +241,86 @@ button {
     font-size: 9px;
     font-weight: 700;
 }
+/*dropdown menu for the header*/
+.nav-dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 16px 0;
+    border: 0;
+    color: white;
+    background: transparent;
+    text-transform: uppercase;
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.dropdown-toggle i {
+    font-size: 10px;
+    transition: transform 0.2s ease;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 50%;
+    z-index: 1200;
+
+    width: 230px;
+    padding: 10px 0;
+
+    background: white;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, 8px);
+
+    transition:
+        opacity 0.2s ease,
+        visibility 0.2s ease,
+        transform 0.2s ease;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 13px 20px;
+    color: #1d1d1d;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.dropdown-menu a:hover {
+    color: var(--pink);
+    background: #f7f7f7;
+}
+
+.nav-dropdown:hover .dropdown-menu,
+.nav-dropdown:focus-within .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+}
+
+.nav-dropdown:hover .dropdown-toggle i,
+.nav-dropdown:focus-within .dropdown-toggle i {
+    transform: rotate(180deg);
+}
+.dropdown-menu.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+}
+
 /* adding a carousel section to the hero section */
 /* =========================
    HERO CAROUSEL
@@ -214,9 +328,9 @@ button {
 
 .hero-carousel {
     position: relative;
-    height: 620px;
+    height: 480px;
     overflow: hidden;
-    background: #111111;
+    background: white;
 }
 
 .carousel-slide {
@@ -234,10 +348,18 @@ button {
     visibility: visible;
 }
 
-.carousel-slide img {
+.carousel-slide > img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
+}
+
+.recital-promo-card img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: right center;
 }
 
 .carousel-overlay {
@@ -266,7 +388,7 @@ button {
     margin: 0 0 15px;
     color: var(--pink);
     text-transform: uppercase;
-    font-size: 13px;
+    font-size: 10px;
     font-weight: 800;
     letter-spacing: 0.15em;
 }
@@ -329,7 +451,7 @@ button {
     bottom: 25px;
     left: 50%;
     display: flex;
-    gap: 10px;
+    gap: 12px;
     transform: translateX(-50%);
 }
 
@@ -529,18 +651,20 @@ button {
 }
 
 .category-card {
-     background: white;
+    background: white;
     border-radius: 12px;
     overflow: hidden;
-
-    display: flex;
-    flex-direction: column;
-
-    height: 420px;
-
     transition: .3s;
 }
 
+.category-image {
+    height: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    background: white;
+}
 .category-card:hover{
     transform: translateY(-8px);
 }
@@ -552,9 +676,8 @@ button {
 
 .category-card img {
     width: 100%;
-    height: 340px;
+    height: 100%;
     object-fit: contain;
-    background: var(--white);
     transition: transform 0.35s ease;
 }
 
@@ -572,6 +695,7 @@ button {
     font-size:15px;
     font-weight:700;
     text-transform:uppercase;
+    text-align:center;
 }
 
 .category-label i {
@@ -625,38 +749,52 @@ button {
 }
 
 /* =========================
-   BRAND STORY
+   ORDER GUIDE SECTION
 ========================= */
 
-.brand-story {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+.order-guide-section {
+    padding: 80px 40px;
+    background: var(--white);
 }
 
-.brand-story-image {
-    min-height: 480px;
+.order-guide-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
 }
 
-.brand-story-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.order-guide-content .section-label {
+    margin: 0 0 14px;
+    color: var(--pink);
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
 }
 
-.brand-story-content {
-    padding: 80px clamp(40px, 7vw, 110px);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
+.order-guide-content h2 {
+    margin: 0 0 24px;
+    color: var(--pink);
+    text-transform: uppercase;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 900;
+    line-height: 1.1;
 }
 
-.brand-story-content > p:not(.section-label) {
-    max-width: 620px;
-    margin: 25px 0 30px;
+.order-guide-content > p:not(.section-label) {
+    max-width: 780px;
+    margin: 0 auto 32px;
     color: var(--muted);
-    font-size: 15px;
+    font-size: 17px;
     line-height: 1.8;
+}
+/* makes the buttons side by side and centered */
+.guide-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
 }
 
 /* =========================
