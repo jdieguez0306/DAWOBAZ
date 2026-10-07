@@ -150,7 +150,7 @@ button {
 }
 
 .main-nav a {
-    position: absolute;
+    position: relative;
     padding: 16px 0;
     color: white;
     text-decoration: none;
