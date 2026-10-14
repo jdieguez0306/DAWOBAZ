@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | Dance World Bazaar (DAWOBAZ)</title>
+  <meta name="description" content="Contact Dance World Bazaar in Greensburg, Indiana for custom dance apparel questions and orders.">
+  <meta property="og:title" content="Contact Us | Dance World Bazaar">
+  <meta property="og:description" content="Contact Dance World Bazaar in Greensburg, Indiana for custom dance apparel questions and orders.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/logo/dawobaz-logo.png">
+  <link rel="icon" href="images/logo/dawobaz-logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main id="main">
+    <section class="page-banner">
+      <div class="page-banner-inner">
+        <p class="breadcrumb"><a href="index.html">Home</a> / Contact Us</p>
+        <h1>Contact Us</h1>
+        <p>Questions about an order, artwork or pricing? Reach out and a real person will get back to you.</p>
+      </div>
+    </section>
+    <section class="two-col-section">
+      <div class="info-card">
+        <h2>Dance World Bazaar</h2>
+        <ul class="contact-list">
+          <li><i class="fa-solid fa-location-dot"></i><address>1553 Commerce East Drive<br>Greensburg, IN 47240</address></li>
+          <li><i class="fa-solid fa-phone"></i><a href="tel:8126637679">812-663-7679</a></li>
+          <li><i class="fa-solid fa-envelope"></i><a href="mailto:orders@dawobaz.com">orders@dawobaz.com</a></li>
+        </ul>
+        <!-- TODO: add business hours here once the owner confirms them -->
+      </div>
+
+      <form class="form-card" data-form="contact" novalidate>
+        <h2>Send us a message</h2>
+        <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label for="c-name">Your name *</label>
+        <input id="c-name" name="name" type="text" required autocomplete="name">
+        <label for="c-studio">Studio / team name</label>
+        <input id="c-studio" name="studio" type="text">
+        <label for="c-email">Email *</label>
+        <input id="c-email" name="email" type="email" required autocomplete="email">
+        <label for="c-phone">Phone</label>
+        <input id="c-phone" name="phone" type="tel" autocomplete="tel">
+        <label for="c-message">How can we help? *</label>
+        <textarea id="c-message" name="message" rows="5" required></textarea>
+        <button class="button button-pink" type="submit">Send Message</button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/forms.js"></script>
+</body>
+</html>
