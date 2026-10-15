@@ -76,7 +76,7 @@
         "</nav>" +
         '<div class="header-actions">' +
         '<button class="search-button" type="button" aria-label="Open search" aria-expanded="false" aria-controls="site-search-container"><i class="fa-solid fa-magnifying-glass"></i></button>' +
-        '<a class="cart-link" href="order.html" aria-label="Shopping cart"><i class="fa-solid fa-bag-shopping"></i><span class="cart-count">0</span></a>' +
+        '<a class="cart-link" href="order.html" aria-label="Order list"><i class="fa-solid fa-bag-shopping"></i><span class="cart-count">0</span></a>' +
         '<div class="search-container" id="site-search-container">' +
         '<label class="sr-only" for="site-search">Search the website</label>' +
         '<input type="search" id="site-search" placeholder="Search products..." autocomplete="off" list="site-search-list">' +
