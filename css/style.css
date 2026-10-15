@@ -579,19 +579,19 @@ button {
     max-width: 1450px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 6px;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
 }
 
 .category-card {
     background: white;
-    border-radius: 20px;
+    border-radius: 12px;
     overflow: hidden;
     transition: .3s;
 }
 
 .category-image {
-    height: 450px;
+    height: 320px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -610,12 +610,12 @@ button {
 .category-card img {
     width: 100%;
     height: 100%;
-    object-fit: scale-down;
+    object-fit: contain;
     transition: transform 0.35s ease;
 }
 
 .category-card:hover img {
-    transform: scale(1.30);
+    transform: scale(1.04);
 }
 
 .category-label {
@@ -625,10 +625,14 @@ button {
     bottom: 10px;
     left: 10px;
     padding:13px 15px;
-    font-size:20px;
-    font-weight:650;
+    font-size:15px;
+    font-weight:700;
     text-transform:uppercase;
     text-align:center;
+}
+
+.category-label i {
+    color: var(--pink);
 }
 
 /* =========================
@@ -660,7 +664,7 @@ button {
 .benefit i {
     margin-bottom: 20px;
     color: var(--pink);
-    font-size: 40px;
+    font-size: 38px;
 }
 
 .benefit h3 {
@@ -1209,7 +1213,7 @@ button {
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-template-columns: repeat(3, minmax(260px, 1fr));
     gap: 28px;
 }
 
@@ -1224,7 +1228,7 @@ button {
 }
 
 .product-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-6px);
     box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
 }
 
@@ -1837,4 +1841,95 @@ button {
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
     }
+}
+
+
+/* ---------- grouped product sections (bags) + pricing notes ---------- */
+
+.min-order-note {
+    margin-bottom: 44px;
+    padding: 18px 22px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    border-left: 5px solid var(--pink);
+    border-radius: 8px;
+    background: #fff0f6;
+    line-height: 1.6;
+}
+
+.min-order-note i {
+    margin-top: 4px;
+    color: var(--pink);
+    font-size: 20px;
+}
+
+.min-order-note strong,
+.min-order-note span {
+    display: block;
+}
+
+.min-order-note span {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.min-order-note a {
+    color: var(--pink-dark);
+    font-weight: 700;
+}
+
+.group-section + .group-section {
+    margin-top: 56px;
+}
+
+.group-header {
+    margin-bottom: 24px;
+    padding: 16px 22px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 6px 20px;
+    color: var(--white);
+    border-radius: 8px;
+    background: linear-gradient(90deg, var(--pink), var(--pink-dark));
+}
+
+.group-header h2 {
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.group-header p {
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+}
+
+.product-price.price-call {
+    color: var(--muted);
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.product-controls-spacer {
+    margin-top: auto;
+}
+
+.product-body .button-dark {
+    width: 100%;
+}
+
+/* bag photos are product shots on plain backgrounds: show the whole bag, don't crop */
+.group-section .product-media {
+    background: var(--white);
+}
+
+.group-section .product-media img {
+    object-fit: contain;
+    padding: 12px;
 }

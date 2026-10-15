@@ -3,15 +3,17 @@
 /* =========================================================
    SHOP PAGES — fills <div id="product-grid" data-category="...">
    from js/products.js, and handles the cart page (#cart-root).
+
+   Add  data-grouped  to the grid (as bags.html does) to split the
+   products into sections using DAWOBAZ_GROUPS in products.js.
+
+   A product with  price: null  shows "Call for pricing" and an
+   "Ask about this" button instead of Add to Cart.
    ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
     const cart = window.DawobazCart;
     const money = cart.money;
-
-    /* ---------- product grid ---------- */
-
-    const grid = document.getElementById("product-grid");
 
     function escapeHtml(text) {
         const div = document.createElement("div");
@@ -19,47 +21,70 @@ document.addEventListener("DOMContentLoaded", () => {
         return div.innerHTML;
     }
 
-    if (grid) {
-        const category = grid.dataset.category;
-        const products = (window.DAWOBAZ_PRODUCTS || []).filter((p) => p.category === category);
+    const PLACEHOLDER =
+        '<div class="product-placeholder" role="img" aria-label="Product photo coming soon">' +
+        '<i class="fa-solid fa-shirt"></i><span>Photo coming soon</span></div>';
 
-        if (products.length === 0) {
-            grid.innerHTML = '<p class="empty-note">Products coming soon. Call 812-663-7679 to place an order.</p>';
+    function hasPrice(product) {
+        return typeof product.price === "number" && product.price >= 0;
+    }
+
+    function buildCard(product) {
+        const card = document.createElement("article");
+        card.className = "product-card";
+
+        const media = product.image
+            ? '<img src="' + escapeHtml(product.image) + '" alt="' + escapeHtml(product.name) + '" loading="lazy">'
+            : PLACEHOLDER;
+
+        const priced = hasPrice(product);
+        const hasOptions = product.options && product.options.length > 0;
+        const label = product.optionLabel || "Size";
+        const selectId = "opt-" + product.id;
+
+        const optionHtml = hasOptions
+            ? '<label for="' + selectId + '">' + escapeHtml(label) + "</label>" +
+              '<select id="' + selectId + '">' +
+              product.options.map((o) => "<option>" + escapeHtml(o) + "</option>").join("") +
+              "</select>"
+            : "";
+
+        const qtyHtml = priced
+            ? '<label for="qty-' + product.id + '">Qty</label>' +
+              '<input id="qty-' + product.id + '" type="number" min="1" max="999" value="1" inputmode="numeric">'
+            : "";
+
+        const priceHtml = priced
+            ? '<p class="product-price">' + money(product.price) + "</p>"
+            : '<p class="product-price price-call">Call for pricing</p>';
+
+        const actionHtml = priced
+            ? '<button class="button button-pink add-to-cart" type="button">Add to Cart</button>'
+            : '<a class="button button-dark" href="contact.html">Ask About This Item</a>';
+
+        const controls = optionHtml || qtyHtml
+            ? '<div class="product-controls">' + optionHtml + qtyHtml + "</div>"
+            : '<div class="product-controls-spacer"></div>';
+
+        card.innerHTML =
+            '<div class="product-media">' + media + "</div>" +
+            '<div class="product-body">' +
+            "<h3>" + escapeHtml(product.name) + "</h3>" +
+            (product.description ? '<p class="product-desc">' + escapeHtml(product.description) + "</p>" : "") +
+            (product.category === "bags" ? '<a class="button button-pink" style="margin-bottom:10px" href="bag-details.html?id=' + encodeURIComponent(product.id) + '">View Details</a>' : "") +
+            priceHtml + controls + actionHtml +
+            "</div>";
+
+        /* If a photo file is missing, fall back to the placeholder box. */
+        const img = card.querySelector(".product-media img");
+        if (img) {
+            img.addEventListener("error", () => {
+                img.closest(".product-media").innerHTML = PLACEHOLDER;
+            });
         }
 
-        products.forEach((product) => {
-            const card = document.createElement("article");
-            card.className = "product-card";
-
-            const media = product.image
-                ? '<img src="' + escapeHtml(product.image) + '" alt="' + escapeHtml(product.name) + '" loading="lazy">'
-                : '<div class="product-placeholder" role="img" aria-label="Product photo coming soon"><i class="fa-solid fa-shirt"></i><span>Photo coming soon</span></div>';
-
-            const hasOptions = product.options && product.options.length > 0;
-            const label = product.optionLabel || "Size";
-            const selectId = "opt-" + product.id;
-
-            const optionHtml = hasOptions
-                ? '<label for="' + selectId + '">' + escapeHtml(label) + "</label>" +
-                  '<select id="' + selectId + '">' +
-                  product.options.map((o) => "<option>" + escapeHtml(o) + "</option>").join("") +
-                  "</select>"
-                : "";
-
-            card.innerHTML =
-                '<div class="product-media">' + media + "</div>" +
-                '<div class="product-body">' +
-                "<h3>" + escapeHtml(product.name) + "</h3>" +
-                '<p class="product-desc">' + escapeHtml(product.description || "") + "</p>" +
-                '<p class="product-price">' + money(product.price) + "</p>" +
-                '<div class="product-controls">' + optionHtml +
-                '<label for="qty-' + product.id + '">Qty</label>' +
-                '<input id="qty-' + product.id + '" type="number" min="1" max="999" value="1" inputmode="numeric">' +
-                "</div>" +
-                '<button class="button button-pink add-to-cart" type="button">Add to Cart</button>' +
-                "</div>";
-
-            const button = card.querySelector(".add-to-cart");
+        const button = card.querySelector(".add-to-cart");
+        if (button) {
             button.addEventListener("click", () => {
                 const select = card.querySelector("select");
                 const qty = card.querySelector('input[type="number"]').value;
@@ -71,9 +96,44 @@ document.addEventListener("DOMContentLoaded", () => {
                     button.classList.remove("is-added");
                 }, 1400);
             });
+        }
 
-            grid.appendChild(card);
-        });
+        return card;
+    }
+
+    /* ---------- product grid ---------- */
+
+    const grid = document.getElementById("product-grid");
+
+    if (grid) {
+        const category = grid.dataset.category;
+        const products = (window.DAWOBAZ_PRODUCTS || []).filter((p) => p.category === category);
+        const groups = (window.DAWOBAZ_GROUPS || {})[category];
+
+        if (products.length === 0) {
+            grid.innerHTML = '<p class="empty-note">Products coming soon. Call 812-663-7679 to place an order.</p>';
+        } else if (grid.hasAttribute("data-grouped") && groups) {
+            grid.classList.remove("product-grid");
+            groups.forEach((group) => {
+                const items = products.filter((p) => p.group === group.id);
+                if (items.length === 0) return;
+
+                const section = document.createElement("section");
+                section.className = "group-section";
+                section.innerHTML =
+                    '<header class="group-header">' +
+                    "<h2>" + escapeHtml(group.title) + "</h2>" +
+                    '<p>Maximum imprint size <strong>' + escapeHtml(group.imprint) + "</strong></p>" +
+                    "</header>" +
+                    '<div class="product-grid"></div>';
+
+                const inner = section.querySelector(".product-grid");
+                items.forEach((p) => inner.appendChild(buildCard(p)));
+                grid.appendChild(section);
+            });
+        } else {
+            products.forEach((p) => grid.appendChild(buildCard(p)));
+        }
     }
 
     /* ---------- cart page ---------- */

@@ -69,9 +69,18 @@ window.DAWOBAZ_PRODUCTS = [
     { id: "app-hoodie", category: "apparel", name: "Custom Hoodie", price: 34.0, image: "", options: SIZES_YOUTH_ADULT, description: "Cozy pullover hoodie with front print." },
     { id: "app-crew", category: "apparel", name: "Crewneck Sweatshirt", price: 29.0, image: "", options: SIZES_YOUTH_ADULT, description: "Classic crewneck for practice days." },
 
-    /* ---- Bags ---- */
-    { id: "bag-duffel", category: "bags", name: "Personalized Duffel Bag", price: 32.0, image: "", options: ["Black", "Pink", "Navy"], optionLabel: "Color", description: "Roomy duffel with embroidered name." },
-    { id: "bag-backpack", category: "bags", name: "Dance Backpack", price: 28.0, image: "", options: ["Black", "Pink", "Navy"], optionLabel: "Color", description: "Everyday backpack with studio logo." },
+    /* ---- Bags ----
+       group = which imprint group the bag belongs to (see DAWOBAZ_GROUPS below).
+       price: null  ->  page shows "Call for pricing" and an "Ask about this bag" button.
+       Fill in a number (e.g. price: 24.5) and it becomes a normal Add to Cart product. */
+    { id: "bag-gear-bag",   category: "bags", group: 1, name: "Gear Bag",      price: null, image: "images/bags/bag_gear_bag_sm.gif",   options: [], description: "" },
+    { id: "bag-spirit-bag", category: "bags", group: 1, name: "Spirit Bag",    price: null, image: "images/bags/bag_spirit_bag_sm.gif", options: [], description: "" },
+    { id: "bag-garment",    category: "bags", group: 2, name: "Garment Bag",   price: null, image: "images/bags/bag_garment_sm.gif",    options: [], description: "" },
+    { id: "bag-l",          category: "bags", group: 2, name: "Bag #L",        price: null, image: "images/bags/bag_l_sm.gif",          options: [], description: "" },
+    { id: "bag-f",          category: "bags", group: 2, name: "Bag #F",        price: null, image: "images/bags/bag_f_sm.gif",          options: [], description: "" },
+    { id: "bag-garment-b",  category: "bags", group: 3, name: "Garment Bag B", price: null, image: "images/bags/bag_garment_b_sm.gif",  options: [], description: "" },
+    { id: "bag-h",          category: "bags", group: 3, name: "Bag #H",        price: null, image: "images/bags/bag_h_sm.gif",          options: [], description: "" },
+    { id: "bag-i",          category: "bags", group: 3, name: "Bag #I",        price: null, image: "images/bags/bag_i_sm.gif",          options: [], description: "" },
 
     /* ---- Jackets ---- */
     { id: "jkt-warmup", category: "jackets", name: "Team Warm-Up Jacket", price: 45.0, image: "", options: SIZES_YOUTH_ADULT, description: "Full-zip warm-up jacket with team logo and names." },
@@ -88,6 +97,15 @@ window.DAWOBAZ_PRODUCTS = [
     /* ---- Studio logos ---- */
     { id: "logo-design", category: "logos", name: "Custom Studio Logo Design", price: 75.0, image: "", options: [], description: "Original logo artwork created for your studio." }
 ];
+
+/* Groups used by pages that show products in sections (currently bags). */
+window.DAWOBAZ_GROUPS = {
+    bags: [
+        { id: 1, title: "Group 1", imprint: '4" x 8"' },
+        { id: 2, title: "Group 2", imprint: '6" x 6"' },
+        { id: 3, title: "Group 3", imprint: '9" x 9"' }
+    ]
+};
 
 window.DAWOBAZ_CONFIG = {
     shipping: 20.0,        // flat shipping shown in the cart
