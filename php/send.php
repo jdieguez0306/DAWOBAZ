@@ -87,16 +87,21 @@ if ($type === 'order' && !empty($_POST['cart'])) {
     $cart = json_decode($_POST['cart'], true);
     if (is_array($cart) && !empty($cart['items'])) {
         $lines[] = '';
-        $lines[] = 'ITEMS REQUESTED';
+        $lines[] = 'ITEMS';
         $lines[] = str_repeat('-', 40);
         foreach (array_slice($cart['items'], 0, 100) as $item) {
             $lines[] = sprintf(
-                '%d x %s %s',
+                '%d x %s %s @ $%0.2f',
                 (int)($item['quantity'] ?? 0),
                 clean($item['name'] ?? '', 120),
-                !empty($item['option']) ? '(' . clean($item['option'], 60) . ')' : ''
+                !empty($item['option']) ? '(' . clean($item['option'], 60) . ')' : '',
+                (float)($item['price'] ?? 0)
             );
         }
+        $lines[] = sprintf('Subtotal: $%0.2f', (float)($cart['subtotal'] ?? 0));
+        $lines[] = sprintf('Shipping: $%0.2f', (float)($cart['shipping'] ?? 0));
+        $lines[] = sprintf('Total:    $%0.2f', (float)($cart['total'] ?? 0));
+        $lines[] = '(Prices shown on the website; please confirm before invoicing.)';
     }
 }
 

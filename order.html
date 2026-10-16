@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Order List | Dance World Bazaar (DAWOBAZ)</title>
-  <meta name="description" content="Review your list of items and send your custom dance apparel order request.">
+  <title>Cart & Order Request | Dance World Bazaar (DAWOBAZ)</title>
+  <meta name="description" content="Review your cart and send your custom dance apparel order request.">
   <meta property="og:title" content="Cart & Order Request | Dance World Bazaar">
-  <meta property="og:description" content="Review your list of items and send your custom dance apparel order request.">
+  <meta property="og:description" content="Review your cart and send your custom dance apparel order request.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="images/logo/dawobaz-logo.png">
   <link rel="icon" href="images/logo/dawobaz-logo.png" type="image/png">
@@ -22,27 +22,27 @@
   <main id="main">
     <section class="page-banner">
       <div class="page-banner-inner">
-        <p class="breadcrumb"><a href="index.html">Home</a> / Your Order List</p>
-        <h1>Your Order List</h1>
-        <p>Review the items you'd like to order, then send your request. We'll reply with pricing and confirm details and artwork before anything is printed.</p>
+        <p class="breadcrumb"><a href="index.html">Home</a> / Your Cart</p>
+        <h1>Your Cart</h1>
+        <p>Review your items, then send your order request. We'll confirm details, artwork and shipping with you before anything is printed.</p>
       </div>
     </section>
     <section class="cart-section" id="cart-root">
       <div class="cart-layout">
         <div class="cart-main">
-          <div class="cart-head" aria-hidden="true"><span>Item</span><span>Qty</span><span></span></div>
+          <div class="cart-head" aria-hidden="true"><span>Item</span><span>Price</span><span>Qty</span><span>Total</span><span></span></div>
           <div id="cart-items"></div>
         </div>
 
         <aside class="cart-side">
-          <div class="cart-summary">
-            <h2>What happens next</h2>
-            <ol class="steps">
-              <li>Fill out the form with your contact details.</li>
-              <li>Our team receives your list and sends you pricing.</li>
-              <li>We confirm artwork, sizes and delivery with you.</li>
-            </ol>
-            <p class="fine-print">No payment is taken on this site.</p>
+          <div id="cart-summary" class="cart-summary" hidden>
+            <h2>Order Summary</h2>
+            <dl>
+              <div><dt>Subtotal</dt><dd id="sum-subtotal">$0.00</dd></div>
+              <div><dt>Shipping</dt><dd id="sum-shipping">$0.00</dd></div>
+              <div class="sum-total"><dt>Total</dt><dd id="sum-total">$0.00</dd></div>
+            </dl>
+            <p class="fine-print">Your order request goes straight to our team. No payment is taken on this site; we'll contact you to confirm and arrange payment.</p>
           </div>
 
           <form id="order-form" class="form-card" data-form="order" hidden novalidate>

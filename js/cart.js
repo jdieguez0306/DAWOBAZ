@@ -1,8 +1,7 @@
 "use strict";
 
 /* =========================================================
-   ORDER LIST (cart) — just the items and quantities a visitor wants
-   to order, stored in their browser (localStorage). No prices.
+   CART — stored in the browser (localStorage).
    Exposes window.DawobazCart for other scripts.
    ========================================================= */
 
@@ -56,6 +55,7 @@
                 key: key,
                 id: product.id,
                 name: product.name,
+                price: product.price,
                 option: option || "",
                 optionLabel: product.optionLabel || "Size",
                 quantity: qty
@@ -88,6 +88,10 @@
         return get().reduce((sum, item) => sum + item.quantity, 0);
     }
 
+    function subtotal() {
+        return get().reduce((sum, item) => sum + item.price * item.quantity, 0);
+    }
+
     function updateBadge() {
         document.querySelectorAll(".cart-count").forEach((badge) => {
             const total = count();
@@ -96,7 +100,11 @@
         });
     }
 
-    window.DawobazCart = { get, add, setQuantity, remove, clear, count, updateBadge };
+    function money(value) {
+        return "$" + Number(value).toFixed(2);
+    }
+
+    window.DawobazCart = { get, add, setQuantity, remove, clear, count, subtotal, money, updateBadge };
 
     document.addEventListener("DOMContentLoaded", updateBadge);
     document.addEventListener("layout:ready", updateBadge);

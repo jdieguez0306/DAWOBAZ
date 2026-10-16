@@ -579,7 +579,7 @@ button {
     max-width: 1450px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(7, 1fr);
     gap: 8px;
 }
 
@@ -1213,7 +1213,7 @@ button {
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-template-columns: repeat(3, minmax(260px, 1fr));
     gap: 28px;
 }
 
@@ -1228,7 +1228,7 @@ button {
 }
 
 .product-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-6px);
     box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
 }
 
@@ -1287,6 +1287,13 @@ button {
     color: var(--muted);
     font-size: 13px;
     line-height: 1.55;
+}
+
+.product-price {
+    margin: 0 0 14px;
+    color: var(--pink-dark);
+    font-size: 20px;
+    font-weight: 800;
 }
 
 .product-controls {
@@ -1376,7 +1383,7 @@ button {
 .cart-head,
 .cart-line {
     display: grid;
-    grid-template-columns: 1fr 90px 40px;
+    grid-template-columns: 1fr 90px 90px 100px 40px;
     align-items: center;
     gap: 14px;
 }
@@ -1403,6 +1410,10 @@ button {
     margin: 0;
     color: var(--muted);
     font-size: 13px;
+}
+
+.cart-line-total {
+    font-weight: 800;
 }
 
 .cart-remove {
@@ -1462,6 +1473,28 @@ button {
     font-size: 20px;
     font-weight: 800;
     text-transform: uppercase;
+}
+
+.cart-summary dl {
+    margin: 0;
+}
+
+.cart-summary dl div {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+}
+
+.cart-summary dt,
+.cart-summary dd {
+    margin: 0;
+}
+
+.cart-summary .sum-total {
+    margin-top: 6px;
+    border-top: 2px solid var(--black);
+    font-size: 20px;
+    font-weight: 800;
 }
 
 .fine-print {
@@ -1772,7 +1805,16 @@ button {
 
     .cart-line {
         grid-template-columns: 1fr 80px 36px;
+        grid-template-areas:
+            "info info remove"
+            "price qty total";
     }
+
+    .cart-line-info { grid-area: info; }
+    .cart-line-price { grid-area: price; }
+    .cart-qty { grid-area: qty; }
+    .cart-line-total { grid-area: total; text-align: right; }
+    .cart-remove { grid-area: remove; }
 
     .page-banner {
         padding: 40px 20px 34px;
@@ -1866,6 +1908,16 @@ button {
     text-transform: uppercase;
     font-size: 13px;
     letter-spacing: 0.04em;
+}
+
+.product-price.price-call {
+    color: var(--muted);
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.product-controls-spacer {
+    margin-top: auto;
 }
 
 .product-body .button-dark {
