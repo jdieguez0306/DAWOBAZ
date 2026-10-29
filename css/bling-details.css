@@ -1,0 +1,343 @@
+
+/* =========================================
+   SUPER SAVER GLITTER INK
+========================================= */
+
+.glitter-saver-section {
+    max-width: 1100px;
+    margin: 0 auto 60px;
+    padding: 20px;
+}
+
+/* Promotional Banner */
+
+.glitter-saver-header {
+    text-align: center;
+    padding: 36px 28px;
+    background: linear-gradient(
+        135deg,
+        #fff0f8,
+        #ffe0f0
+    );
+    border-radius: 16px;
+    margin-bottom: 45px;
+}
+
+.glitter-saver-header h2 {
+    color: #e6008d;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    margin-bottom: 16px;
+}
+
+.glitter-saver-header p {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+/* =========================================
+   PRICING TABLE
+========================================= */
+
+.glitter-pricing {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.glitter-pricing h3 {
+    margin-bottom: 24px;
+    color: #444;
+}
+
+.glitter-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid #eee;
+}
+
+.glitter-price-table {
+    width: 100%;
+    min-width: 650px;
+    border-collapse: collapse;
+    background: white;
+}
+
+.glitter-price-table th,
+.glitter-price-table td {
+    padding: 16px;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}
+
+.glitter-price-table thead {
+    background: #fce5f1;
+}
+
+.glitter-price-table tbody tr:hover {
+    background: #fff7fb;
+}
+
+.glitter-quote-note {
+    margin: 24px 0 18px;
+    color: #d60083;
+    font-weight: 700;
+}
+
+/* =========================================
+   ORDERING STEPS
+========================================= */
+
+.glitter-order-steps {
+    text-align: center;
+}
+
+.glitter-order-steps h2 {
+    margin-bottom: 30px;
+}
+
+.glitter-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.glitter-step-card {
+    padding: 32px 22px;
+    background: #fff;
+    border: 1px solid #f0d9e6;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(0,0,0,.04);
+}
+
+.glitter-step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: #e6008d;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 18px;
+}
+
+.glitter-step-card h3 {
+    margin-bottom: 12px;
+}
+
+.glitter-step-card p {
+    line-height: 1.6;
+    color: #555;
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+========================================= */
+
+@media (max-width: 700px) {
+    .glitter-steps-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .glitter-saver-header {
+        padding: 28px 18px;
+    }
+
+    .glitter-saver-section {
+        padding: 10px;
+    }
+}
+/* =========================================
+   BLING DETAIL PAGE LAYOUT
+========================================= */
+
+.bling-detail-section {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 48px 22px 72px;
+}
+
+.bling-detail-intro {
+    max-width: 760px;
+    margin: 0 auto 36px;
+    text-align: center;
+    line-height: 1.65;
+}
+
+/* =========================================
+   PRODUCT GRIDS
+========================================= */
+
+/* Glitter Flake: 3 columns */
+.bling-options-grid,
+.bling-ink-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin: 0 auto 54px;
+}
+
+/* Glitter Ink: 4 columns */
+.bling-ink-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+/* =========================================
+   PRODUCT CARDS
+========================================= */
+
+.bling-option-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    border: 1px solid #e7e1e5;
+    border-radius: 14px;
+    background: #fff;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.045);
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.bling-option-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.1);
+}
+
+/* =========================================
+   IMAGE PLACEHOLDERS
+========================================= */
+
+.bling-placeholder {
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(
+        135deg,
+        #fff4fa,
+        #f5edf5 55%,
+        #fff
+    );
+    color: #8d6480;
+    font-size: 0.88rem;
+    font-weight: 600;
+    border-bottom: 1px solid #eee2e9;
+}
+
+/* =========================================
+   PRODUCT CARD CONTENT
+========================================= */
+
+.bling-option-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    padding: 22px;
+    text-align: center;
+}
+
+.bling-option-content h3 {
+    margin: 0;
+}
+
+.bling-option-content p {
+    margin: 0 0 8px;
+    line-height: 1.6;
+}
+
+/* Keep buttons aligned at bottom */
+.bling-option-content .button {
+    margin-top: auto;
+}
+
+/* =========================================
+   GLITTER COLOR SELECTION
+========================================= */
+
+.bling-colors {
+    margin: 0 auto 48px;
+    text-align: center;
+}
+
+.bling-colors p {
+    max-width: 680px;
+    margin: 10px auto 24px;
+    line-height: 1.6;
+}
+
+.bling-swatch-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.bling-swatch-placeholder {
+    width: 115px;
+    min-height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px dashed #d8a9c2;
+    border-radius: 10px;
+    background: #fdf5f9;
+    color: #895d77;
+    font-size: 0.85rem;
+}
+
+/* =========================================
+   ADDITIONAL INFORMATION
+========================================= */
+
+.bling-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    margin-bottom: 48px;
+}
+
+.bling-info-card {
+    padding: 24px;
+    border-radius: 12px;
+    background: #fdf5f9;
+    line-height: 1.6;
+}
+
+.bling-info-card h2 {
+    margin-top: 0;
+}
+
+/* =========================================
+   TABLET RESPONSIVENESS
+========================================= */
+
+@media (max-width: 900px) {
+    .bling-options-grid,
+    .bling-ink-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+========================================= */
+
+@media (max-width: 600px) {
+    .bling-options-grid,
+    .bling-ink-grid,
+    .bling-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bling-detail-section {
+        padding: 32px 16px 56px;
+    }
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- The item name is added to the title by js/apparel-details.js -->
+  <title>Apparel Details | Dance World Bazaar (DAWOBAZ)</title>
+  <meta name="description" content="Details, sizes, colors and imprint information for custom printed dance apparel from Dance World Bazaar.">
+  <meta property="og:title" content="Custom Apparel Details | Dance World Bazaar">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/logo/dawobaz-logo.png">
+  <link rel="icon" href="images/logo/dawobaz-logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/apparel-details.css">
+
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main id="main">
+    <section class="page-banner">
+      <div class="page-banner-inner">
+        <p class="breadcrumb">
+          <a href="index.html">Home</a> /
+          <a href="apparel.html">Apparel</a> /
+          <span id="detail-crumb">Item</span>
+        </p>
+        <p class="detail-section-label" id="detail-section">Custom Apparel</p>
+        <h1 id="detail-title">Loading&hellip;</h1>
+      </div>
+    </section>
+
+    <!-- The item is chosen by the link: apparel-details.html?item=app-tshirt -->
+    <section class="detail-section" id="detail-root">
+      <div class="detail-layout">
+
+        <!-- Photos -->
+        <div class="detail-gallery">
+          <div class="detail-photo" id="detail-main-photo"></div>
+          <div class="detail-thumbs" id="detail-thumbs"></div>
+        </div>
+
+        <!-- Information -->
+        <div class="detail-info">
+          <p class="detail-summary" id="detail-summary"></p>
+
+          <dl class="detail-specs">
+            <div>
+              <dt>Fabric</dt>
+              <dd id="detail-fabric"></dd>
+            </div>
+            <div>
+              <dt>Fit</dt>
+              <dd id="detail-fit"></dd>
+            </div>
+            <div>
+              <dt>Colors</dt>
+              <dd id="detail-colors" class="chip-row"></dd>
+            </div>
+            <div>
+              <dt>Sizes</dt>
+              <dd id="detail-sizes" class="chip-row"></dd>
+            </div>
+            <div>
+              <dt>Imprint</dt>
+              <dd id="detail-imprint"></dd>
+            </div>
+            <div>
+              <dt>Good to know</dt>
+              <dd id="detail-notes"></dd>
+            </div>
+          </dl>
+
+          <!-- Add to the order list -->
+          <div class="detail-order">
+            <div class="detail-choices" id="detail-choices"></div>
+            <button class="button button-pink" type="button" id="detail-add">Add to Order List</button>
+            <p class="fine-print">
+              Pricing is sent after you submit your order list.
+              <a href="order.html">View your order list</a>
+            </p>
+          </div>
+
+          <div class="detail-links">
+            <a class="button button-dark" href="custom-design.html">Request Artwork</a>
+            <a class="button button-dark" href="size-runs.html">Request a Size Run</a>
+          </div>
+
+          <a class="detail-back" href="apparel.html"><i class="fa-solid fa-arrow-left"></i> Back to all apparel</a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+<script src="js/product.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/apparel-details.js"></script>
+</body>
+</html>

@@ -27,7 +27,7 @@ window.DAWOBAZ_CATEGORIES = {
     apparel: {
         title: "Custom Apparel",
         intro: "Tees, hoodies and more, printed with your studio or team artwork.",
-        image: "images/categories/apparel.png"
+        image: "images/Categories/custom_apparel_homepage.png"
     },
     bags: {
         title: "Dance Bags",
@@ -64,34 +64,53 @@ window.DAWOBAZ_PRODUCTS = [
     { id: "rec-tee-longsleeve", category: "recital", name: "Long Sleeve Recital Tee", price: 20.0, image: "", options: SIZES_YOUTH_ADULT, description: "Long sleeve version of our most popular recital shirt." },
     { id: "rec-tank", category: "recital", name: "Recital Tank Top", price: 14.0, image: "", options: SIZES_YOUTH_ADULT, description: "Lightweight tank for warm-weather shows." },
 
-    /* ---- Custom apparel ---- */
-    { id: "app-tee", category: "apparel", name: "Custom Studio Tee", price: 16.0, image: "", options: SIZES_YOUTH_ADULT, description: "Your studio artwork on a comfortable everyday tee." },
-    { id: "app-hoodie", category: "apparel", name: "Custom Hoodie", price: 34.0, image: "", options: SIZES_YOUTH_ADULT, description: "Cozy pullover hoodie with front print." },
-    { id: "app-crew", category: "apparel", name: "Crewneck Sweatshirt", price: 29.0, image: "", options: SIZES_YOUTH_ADULT, description: "Classic crewneck for practice days." },
-
+    /* ---- Custom apparel ----
+       group = section of the apparel page (see DAWOBAZ_GROUPS below):
+       1 The Basics, 2 Fitted, 3 Fleece, 4 Pants */
+    { id: "app-tshirt", category: "apparel", group: 1, name: "T-Shirt", image: "images/apparel/tshirt_product_person.gif", options: [], description: "" },
+    { id: "app-comfy-t", category: "apparel", group: 1, name: "Comfy T", image: "images/apparel/comfyt_product_person.gif", options: [], description: "" },
+    { id: "app-long-sleeve", category: "apparel", group: 1, name: "Long Sleeve T", image: "images/apparel/lst_product_person.gif", options: [], description: "" },
+    { id: "app-ladies-v", category: "apparel", group: 1, name: "Ladies V-Neck", image: "images/apparel/fitted_v_comfyt_product_person.gif", options: [], description: "" },
+    { id: "app-ladies-tank", category: "apparel", group: 1, name: "Ladies Tank", image: "images/apparel/ladies_tank_product_person.gif", options: [], description: "" },
+    { id: "app-tiedye", category: "apparel", group: 1, name: "Tie Dye T", image: "images/apparel/tiedye_product_person.gif", options: [], description: "" },
+    { id: "app-baseball-jersey", category: "apparel", group: 1, name: "Baseball Jersey", image: "images/apparel/baseball_jersey_person_big.gif", options: [], description: "" },
+    { id: "app-fitted-comfy-t", category: "apparel", group: 2, name: "Fitted Comfy T", image: "images/apparel/fitted_comfyt_product_person.gif", options: [], description: "" },
+    { id: "app-hoodie", category: "apparel", group: 3, name: "Hoodies", image: "images/apparel/hoodie_big.gif", options: [], description: "" },
+    { id: "app-zip-hoodie", category: "apparel", group: 3, name: "Zip Hoodies", image: "images/apparel/ziphood_big.gif", options: [], description: "" },
+    { id: "app-sweatshirt", category: "apparel", group: 3, name: "Sweatshirt", image: "images/apparel/cns_product_person.gif", options: [], description: "" },
+    { id: "app-quarter-zip", category: "apparel", group: 3, name: "Quarter Zip SS", image: "images/apparel/quarter_zip_product_person.gif", options: [], description: "" },
+    { id: "app-knit-shorts", category: "apparel", group: 4, name: "Knit Shorts", image: "images/apparel/knitshort_big_person.gif", options: [], description: "" },
+    { id: "app-sweatpants", category: "apparel", group: 4, name: "Sweatpants", image: "images/apparel/sweatpant_big.gif", options: [], description: "" },
+    { id: "app-leggings", category: "apparel", group: 4, name: "Leggings", image: "images/apparel/leggings_product_person.gif", options: [], description: "" },
+    { id: "app-joggers", category: "apparel", group: 4, name: "Joggers", image: "images/apparel/joggers_person_big.gif", options: [], description: "" },
+    { id: "app-booty-shorts", category: "apparel", group: 4, name: "Booty Shorts", image: "images/apparel/booty_shorts_person_big.gif", options: [], description: "" },
+    
     /* ---- Bags ----
        group = which imprint group the bag belongs to (see DAWOBAZ_GROUPS below).
        style: number
     */
     { id: "bag-gear-bag",      category: "bags", group: 1, name: "Gear Bag",                 price: 30.0, style: 511,  image: "images/Bags/gear_bag.png",      options: [], description: "" },
     { id: "bag-spirit-bag",    category: "bags", group: 1, name: "Spirit Bag",               price: 35.0, style: 1825, image: "images/Bags/spirit_bag.png",    options: [], description: "" },
-    { id: "bag-garment-front", category: "bags", group: 2, name: "Garment Bag Front Print",  price: 40.0, style: 9009, image: "images/Bags/front_garment.png", options: [], description: "" },
     { id: "bag-roll",          category: "bags", group: 2, name: "Roll Bag",                 price: 25.0, style: 8805, image: "images/Bags/Roll_bag.png",      options: [], description: "" },
+    { id: "bag-garment-front", category: "bags", group: 2, name: "Garment Bag Front Print",  price: 40.0, style: 9009, image: "images/Bags/front_garment.png", options: [], description: "" },
     { id: "bag-M-duffle",      category: "bags", group: 2, name: "Medium Travel Duffel Bag", price: 50.0, style: 417,  image: "images/Bags/duffle_bag.png",    options: [], description: "" },
     { id: "bag-garment-back",  category: "bags", group: 3, name: "Garment Bag Back Print",   price: 40.0, style: 9009, image: "images/Bags/back_garment.png",  options: [], description: "" },
     { id: "bag-drawstring",    category: "bags", group: 3, name: "Drawstring Bag",           price: 25.0, style: 8881, image: "images/Bags/drawstring.png",    options: [], description: "" },
     { id: "bag-zip-tote",      category: "bags", group: 3, name: "Zip Tote Bag",             price: 30.0, style: 8802, image: "images/Bags/Zip_tote_bag.png",  options: [], description: "" },
 
     /* ---- Jackets ---- */
-    { id: "jkt-warmup", category: "jackets", name: "Team Warm-Up Jacket", price: 45.0, image: "", options: SIZES_YOUTH_ADULT, description: "Full-zip warm-up jacket with team logo and names." },
-    { id: "jkt-windbreaker", category: "jackets", name: "Windbreaker", price: 38.0, image: "", options: SIZES_YOUTH_ADULT, description: "Lightweight windbreaker for travel and competitions." },
+    { id: "medalist-warmup",      category: "jackets", name: "Medalist Warmup", price: 45.0, image: "", options: [], description: "" },
+    { id: "fitness-warmup",       category: "jackets", name: "Fitness Warmup", price: 45.0, image: "", options: [], description: "" },
+    { id: "quarter-zip",          category: "jackets", name: "Quarter Zip Sweatshirt", price: 38.0, image: "", options: [], description: "" },
+    { id: "jerzee-fleece-warmup", category: "jackets", name: "Jerzee Fleece Warmup", price: 45.0, image: "", options: [], description: "" },
+    { id: "nylon-warmup",         category: "jackets", name: "Classic Nylon Warmup", price: 45.0, image: "", options: [], description: "" },
 
     /* ---- Bling ---- */
-    { id: "bling-rhinestone", category: "bling", name: "Rhinestone Design Add-On", price: 8.0, image: "", options: ["Small", "Medium", "Large"], optionLabel: "Design size", description: "Add rhinestone sparkle to any apparel item." },
-    { id: "bling-crystal-name", category: "bling", name: "Crystal Name Transfer", price: 10.0, image: "", options: ["Small", "Medium", "Large"], optionLabel: "Design size", description: "Dancer name in crystal stones." },
+    { id: "bling-glitter-flake", category: "bling", name: "Glitter Flake", price: 8.0,  image: "", options: [], description: "Add rhinestone sparkle to any apparel item." },
+    { id: "bling-glitter-ink",   category: "bling", name: "Glitter Ink",   price: 10.0, image: "", options: [], description: "Dancer name in crystal stones." },
 
     /* ---- Holiday ---- */
-    { id: "hol-tee", category: "holiday", name: "Holiday Recital Tee", price: 16.0, image: "", options: SIZES_YOUTH_ADULT, description: "Festive seasonal design on our classic tee." },
+    { id: "hol-tee", category: "holiday", name: "Holiday Recital Tee", price: 16.0, image: "", options: [], description: "Festive seasonal design on our classic tee." },
     { id: "hol-bag", category: "holiday", name: "Holiday Dance Bag", price: 30.0, image: "", options: ["Red", "Green", "Black"], optionLabel: "Color", description: "Seasonal bag for the holiday show." },
 
     /* ---- Studio logos ---- */
@@ -100,6 +119,12 @@ window.DAWOBAZ_PRODUCTS = [
 
 /* Groups used by pages that show products in sections (currently bags). */
 window.DAWOBAZ_GROUPS = {
+    apparel: [
+        { id: 1, title: "The Basics", imprint: '10.5" wide' },
+        { id: 2, title: "Fitted", imprint: '8" wide' },
+        { id: 3, title: "Fleece" },
+        { id: 4, title: "Pants" }
+    ],
     bags: [
         { id: 1, title: "Group 1", imprint: '4" x 8"' },
         { id: 2, title: "Group 2", imprint: '6" x 6"' },

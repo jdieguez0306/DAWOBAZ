@@ -17,19 +17,19 @@ const BAG_DETAILS = {
     price: "$25.00", 
     features: ["Fabric Handle Wrapper", "Zippered main components & side pockets", "Has 4\" x 8\" printed across one side."] 
 },
-  "bag-garment-front":{ 
-    description: "1 Color Printed Logo", 
-    dimensions: "25\" wide x 47\" tall", 
-    material: "210 Dernier Nylon", 
-    price: "$22.00", 
-    features: ["5\" Top Opening Fits Universal Hanger", "6\" Print on left side of zipper"] 
-},
   "bag-roll":{ 
     description: "1 Color Printed Logo", 
     dimensions: "18\" x 10\" x 10\"", 
     material: "Durable Polyester", 
     price: "$18.00", 
     features: ["Detachable/Adjustable Shoulder strap", "Single Zippered Main Compartment", "Has 6\" Print on one side of the bag."] 
+},
+  "bag-garment-front":{ 
+    description: "1 Color Printed Logo", 
+    dimensions: "25\" wide x 47\" tall", 
+    material: "210 Dernier Nylon", 
+    price: "$22.00", 
+    features: ["5\" Top Opening Fits Universal Hanger", "6\" Print on left side of zipper"] 
 },
   "bag-M-duffle":{ 
     description: "1 Color Printed Logo", 

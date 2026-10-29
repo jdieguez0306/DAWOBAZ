@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Custom Apparel | Dance World Bazaar (DAWOBAZ)</title>
-  <meta name="description" content="Tees, hoodies and more, printed with your studio or team artwork.">
+  <meta name="description" content="Custom printed apparel made easy: t-shirts, fitted tees, hoodies, sweatshirts, pants and more for dance studios and teams.">
   <meta property="og:title" content="Custom Apparel | Dance World Bazaar">
-  <meta property="og:description" content="Tees, hoodies and more, printed with your studio or team artwork.">
+  <meta property="og:description" content="Custom printed t-shirts, hoodies, sweatshirts, pants and more for dance studios and teams.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="images/logo/dawobaz-logo.png">
   <link rel="icon" href="images/logo/dawobaz-logo.png" type="image/png">
@@ -22,26 +22,40 @@
   <main id="main">
     <section class="page-banner">
       <div class="page-banner-inner">
-        <p class="breadcrumb"><a href="index.html">Home</a> / Custom Apparel</p>
-        <h1><center>Custom Apparel Made Easy For You</center></h1>
-        <p><center>We've made it easier than ever to try custom printed apparel.</center> </p> <br>
-        <p><center>Tees, hoodies, pants, and more printed with your studio or team artwork.</center></p>
-        
+        <p class="breadcrumb"><a href="index.html">Home</a> / Apparel</p>
+        <h1>Custom Apparel Made Easy</h1>
+        <p>We've made it easier than ever to try custom printed apparel.</p>
       </div>
     </section>
+
     <section class="shop-section">
-      <div id="product-grid" class="product-grid" data-category="apparel"></div>
-      <aside class="shop-help">
-        <h2>Need something custom?</h2>
-        <p>Don't see exactly what you need? We'll build it with you.</p>
-        <a class="button button-dark" href="custom-design.html">Request Artwork</a>
-        <a class="button button-dark" href="size-runs.html">Request a Size Run</a>
-      </aside>
+      <!-- Shipping note + quick actions (from the original page)
+      <div class="min-order-note">
+        <i class="fa-solid fa-truck" aria-hidden="true"></i>
+        <div>
+          <strong>Shipping</strong>
+          <span>$20.00 shipping for standard delivery.</span>
+        </div>
+      </div> -->
+      <div>
+      <h1> <center>Ready to Start?</center></h1>
+      </div>
+      <div class="page-actions">
+        <center>
+          <a class="button button-pink" href="custom-design.html">Request Artwork</a>
+          <a> OR </a>
+          <a class="button button-dark" href="size-runs.html">Request a Size Run</a>
+          <br><br>
+        </center>
+      </div>
+
+      <!-- Items are drawn from js/products.js, split into The Basics / Fitted / Fleece / Pants -->
+      <div id="product-grid" data-category="apparel" data-grouped data-details="apparel-details.html"></div>
     </section>
   </main>
 
   <div id="site-footer"></div>
-<script src="js/products.js"></script>
+<script src="js/product.js"></script>
 <script src="js/cart.js"></script>
 <script src="js/layout.js"></script>
 <script src="js/shop.js"></script>

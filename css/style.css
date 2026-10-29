@@ -1212,14 +1212,22 @@ button {
 }
 
 .product-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(260px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 28px;
+    align-items: stretch;
+}
+
+.product-grid > .product-card {
+    flex: 0 1 286px;            /* card width: change 286px to make cards wider/narrower */
+    max-width: 100%;
 }
 
 .product-card {
     display: flex;
     flex-direction: column;
+    height: 100%;
     border: 1px solid var(--medium-gray);
     border-radius: 12px;
     background: var(--white);
@@ -1240,7 +1248,12 @@ button {
 .product-media img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
 }
 
 .product-placeholder {
@@ -1363,6 +1376,102 @@ button {
     grid-column: 1 / -1;
     text-align: center;
     color: var(--muted);
+}
+
+/* Jackets catalog only */
+.jackets-grid {
+    max-width: 914px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 28px;
+}
+
+.jackets-grid > .product-card {
+    flex: 0 0 calc((100% - 56px) / 3);
+    max-width: 100%;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+    .jackets-grid > .product-card {
+        flex-basis: calc((100% - 28px) / 2);
+    }
+}
+
+/* Phone */
+@media (max-width: 600px) {
+    .jackets-grid > .product-card {
+        flex-basis: 100%;
+    }
+}
+/* ---------- Bling ---------- */
+
+.bling-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 36px;
+}
+
+.bling-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto 48px;
+}
+
+.bling-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    border: 1px solid var(--medium-gray);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.bling-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+}
+
+.bling-media {
+    aspect-ratio: 1 / 1;
+    background: var(--light-gray);
+    padding: 16px;
+}
+
+.bling-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.bling-card-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 12px;
+    padding: 24px;
+    text-align: center;
+}
+
+.bling-card-content .button {
+    margin-top: auto;
+}
+
+@media (max-width: 900px) {
+    .bling-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .bling-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* ---------- cart ---------- */
@@ -1829,8 +1938,8 @@ button {
         padding-left: 18px;
     }
 
-    .product-grid {
-        grid-template-columns: 1fr;
+    .product-grid > .product-card {
+        flex-basis: 100%;
     }
 }
 

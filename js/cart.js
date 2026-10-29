@@ -1,7 +1,8 @@
 "use strict";
 
 /* =========================================================
-   CART — stored in the browser (localStorage).
+   ORDER LIST (cart) — just the items and quantities a visitor wants
+   to order, stored in their browser (localStorage). No prices.
    Exposes window.DawobazCart for other scripts.
    ========================================================= */
 
@@ -39,7 +40,7 @@
         return id + "||" + (option || "");
     }
 
-    function add(productId, option, quantity) {
+    function add(productId, option, quantity, optionLabel) {
         const product = (window.DAWOBAZ_PRODUCTS || []).find((p) => p.id === productId);
         if (!product) return;
 
@@ -55,9 +56,8 @@
                 key: key,
                 id: product.id,
                 name: product.name,
-                price: product.price,
                 option: option || "",
-                optionLabel: product.optionLabel || "Size",
+                optionLabel: optionLabel || product.optionLabel || "Size",
                 quantity: qty
             });
         }
@@ -88,10 +88,6 @@
         return get().reduce((sum, item) => sum + item.quantity, 0);
     }
 
-    function subtotal() {
-        return get().reduce((sum, item) => sum + item.price * item.quantity, 0);
-    }
-
     function updateBadge() {
         document.querySelectorAll(".cart-count").forEach((badge) => {
             const total = count();
@@ -100,11 +96,7 @@
         });
     }
 
-    function money(value) {
-        return "$" + Number(value).toFixed(2);
-    }
-
-    window.DawobazCart = { get, add, setQuantity, remove, clear, count, subtotal, money, updateBadge };
+    window.DawobazCart = { get, add, setQuantity, remove, clear, count, updateBadge };
 
     document.addEventListener("DOMContentLoaded", updateBadge);
     document.addEventListener("layout:ready", updateBadge);

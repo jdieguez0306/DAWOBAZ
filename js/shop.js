@@ -7,13 +7,12 @@
    Add  data-grouped  to the grid (as bags.html does) to split the
    products into sections using DAWOBAZ_GROUPS in products.js.
 
-   A product with  price: null  shows "Call for pricing" and an
-   "Ask about this" button instead of Add to Cart.
+   There are no prices: "Add to Order List" collects items and
+   quantities, and the shop sends pricing after the form is submitted.
    ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
     const cart = window.DawobazCart;
-    const money = cart.money;
 
     function escapeHtml(text) {
         const div = document.createElement("div");
@@ -25,11 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
         '<div class="product-placeholder" role="img" aria-label="Product photo coming soon">' +
         '<i class="fa-solid fa-shirt"></i><span>Photo coming soon</span></div>';
 
-    function hasPrice(product) {
-        return typeof product.price === "number" && product.price >= 0;
-    }
-
-    function buildCard(product) {
+    function buildCard(product, detailsPage) {
         const card = document.createElement("article");
         card.className = "product-card";
 
@@ -37,7 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
             ? '<img src="' + escapeHtml(product.image) + '" alt="' + escapeHtml(product.name) + '" loading="lazy">'
             : PLACEHOLDER;
 
-        const priced = hasPrice(product);
         const hasOptions = product.options && product.options.length > 0;
         const label = product.optionLabel || "Size";
         const selectId = "opt-" + product.id;
@@ -49,30 +43,26 @@ document.addEventListener("DOMContentLoaded", () => {
               "</select>"
             : "";
 
-        const qtyHtml = priced
-            ? '<label for="qty-' + product.id + '">Qty</label>' +
-              '<input id="qty-' + product.id + '" type="number" min="1" max="999" value="1" inputmode="numeric">'
+        const qtyHtml =
+            '<label for="qty-' + product.id + '">Qty</label>' +
+            '<input id="qty-' + product.id + '" type="number" min="1" max="999" value="1" inputmode="numeric">';
+
+        const actionHtml = '<button class="button button-pink add-to-cart" type="button">Add to Order List</button>';
+        const controls = '<div class="product-controls">' + optionHtml + qtyHtml + "</div>";
+
+        const detailsUrl = detailsPage ? detailsPage + "?id=" + encodeURIComponent(product.id) : "";
+        const mediaHtml = detailsUrl
+            ? '<a class="product-media" href="' + detailsUrl + '" aria-label="View details for ' + escapeHtml(product.name) + '">' + media + "</a>"
+            : '<div class="product-media">' + media + "</div>";
+        const detailsLink = detailsUrl
+            ? '<a class="button button-pink" href="' + detailsUrl + '">View Details</a>'
             : "";
 
-        const priceHtml = priced
-            ? '<p class="product-price">' + money(product.price) + "</p>"
-            : '<p class="product-price price-call">Call for pricing</p>';
-
-        const actionHtml = priced
-            ? '<button class="button button-pink add-to-cart" type="button">Add to Cart</button>'
-            : '<a class="button button-dark" href="contact.html">Ask About This Item</a>';
-
-        const controls = optionHtml || qtyHtml
-            ? '<div class="product-controls">' + optionHtml + qtyHtml + "</div>"
-            : '<div class="product-controls-spacer"></div>';
-
         card.innerHTML =
-            '<div class="product-media">' + media + "</div>" +
+            mediaHtml +
             '<div class="product-body">' +
-            "<h3>" + escapeHtml(product.name) + "</h3>" +
+            "<h3>" + escapeHtml(product.name) + "</h3>" + detailsLink +
             (product.description ? '<p class="product-desc">' + escapeHtml(product.description) + "</p>" : "") +
-            (product.category === "bags" ? '<a class="button button-pink" style="margin-bottom:10px" href="bag-details.html?id=' + encodeURIComponent(product.id) + '">View Details</a>' : "") +
-            priceHtml + controls + actionHtml +
             "</div>";
 
         /* If a photo file is missing, fall back to the placeholder box. */
@@ -92,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 button.textContent = "Added ✓";
                 button.classList.add("is-added");
                 window.setTimeout(() => {
-                    button.textContent = "Add to Cart";
+                    button.textContent = "Add to Order List";
                     button.classList.remove("is-added");
                 }, 1400);
             });
@@ -108,6 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (grid) {
         const category = grid.dataset.category;
         const products = (window.DAWOBAZ_PRODUCTS || []).filter((p) => p.category === category);
+        const detailsPage = grid.dataset.details || "";
         const groups = (window.DAWOBAZ_GROUPS || {})[category];
 
         if (products.length === 0) {
@@ -123,16 +114,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 section.innerHTML =
                     '<header class="group-header">' +
                     "<h2>" + escapeHtml(group.title) + "</h2>" +
-                    '<p>Maximum imprint size <strong>' + escapeHtml(group.imprint) + "</strong></p>" +
+                    (group.imprint ? '<p>Maximum imprint size <strong>' + escapeHtml(group.imprint) + "</strong></p>" : "") +
                     "</header>" +
                     '<div class="product-grid"></div>';
 
                 const inner = section.querySelector(".product-grid");
-                items.forEach((p) => inner.appendChild(buildCard(p)));
+                items.forEach((p) => inner.appendChild(buildCard(p, detailsPage)));
                 grid.appendChild(section);
             });
         } else {
-            products.forEach((p) => grid.appendChild(buildCard(p)));
+            products.forEach((p) => grid.appendChild(buildCard(p, detailsPage)));
         }
     }
 
@@ -141,9 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("cart-root");
     if (!root) return;
 
-    const shipping = (window.DAWOBAZ_CONFIG && window.DAWOBAZ_CONFIG.shipping) || 0;
     const itemsBox = root.querySelector("#cart-items");
-    const summary = root.querySelector("#cart-summary");
     const orderForm = root.querySelector("#order-form");
     const cartField = root.querySelector("#cart-json");
 
@@ -153,15 +142,13 @@ document.addEventListener("DOMContentLoaded", () => {
         if (items.length === 0) {
             itemsBox.innerHTML =
                 '<div class="cart-empty"><i class="fa-solid fa-bag-shopping"></i>' +
-                "<h2>Your cart is empty</h2>" +
-                '<p>Browse our collections and add items to start your order.</p>' +
+                "<h2>Your order list is empty</h2>" +
+                '<p>Browse our collections and add the items you\'d like to order.</p>' +
                 '<a class="button button-pink" href="index.html#categories">Shop Categories</a></div>';
-            summary.hidden = true;
             orderForm.hidden = true;
             return;
         }
 
-        summary.hidden = false;
         orderForm.hidden = false;
 
         itemsBox.innerHTML = items.map((item) => {
@@ -169,24 +156,14 @@ document.addEventListener("DOMContentLoaded", () => {
             return '<div class="cart-line" data-key="' + escapeHtml(item.key) + '">' +
                 '<div class="cart-line-info"><h3>' + escapeHtml(item.name) + "</h3>" +
                 "<p>" + optionText + "</p></div>" +
-                '<div class="cart-line-price">' + money(item.price) + "</div>" +
                 '<label class="sr-only" for="q-' + escapeHtml(item.key) + '">Quantity</label>' +
                 '<input class="cart-qty" id="q-' + escapeHtml(item.key) + '" type="number" min="1" max="999" value="' + item.quantity + '">' +
-                '<div class="cart-line-total">' + money(item.price * item.quantity) + "</div>" +
                 '<button class="cart-remove" type="button" aria-label="Remove ' + escapeHtml(item.name) + '"><i class="fa-solid fa-xmark"></i></button>' +
                 "</div>";
         }).join("");
 
-        const sub = cart.subtotal();
-        root.querySelector("#sum-subtotal").textContent = money(sub);
-        root.querySelector("#sum-shipping").textContent = money(shipping);
-        root.querySelector("#sum-total").textContent = money(sub + shipping);
-
         cartField.value = JSON.stringify({
-            items: items.map((i) => ({ name: i.name, option: i.option ? i.optionLabel + ": " + i.option : "", price: i.price, quantity: i.quantity })),
-            subtotal: sub,
-            shipping: shipping,
-            total: sub + shipping
+            items: items.map((i) => ({ name: i.name, option: i.option ? i.optionLabel + ": " + i.option : "", quantity: i.quantity }))
         });
     }
 
