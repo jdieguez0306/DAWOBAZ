@@ -20,28 +20,200 @@
   <div id="site-header"></div>
 
   <main id="main">
-    <section class="page-banner">
+
+    
+<!-- HOLIDAY PAGE BANNER -->
+    <section class="page-banner holiday-banner">
       <div class="page-banner-inner">
-        <p class="breadcrumb"><a href="index.html">Home</a> / Holiday Designs</p>
-        <h1>Holiday Designs</h1>
-        <p>Festive seasonal designs for recital shirts, jackets and bags.</p>
+
+        <p class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span aria-hidden="true"> / </span>
+          <span aria-current="page">Holiday Designs</span>
+        </p>
+
       </div>
     </section>
-    <section class="shop-section">
-      <div id="product-grid" class="product-grid" data-category="holiday"></div>
-      <aside class="shop-help">
-        <h2>Need something custom?</h2>
-        <p>Don't see exactly what you need? We'll build it with you.</p>
-        <a class="button button-dark" href="custom-design.html">Request Artwork</a>
-        <a class="button button-dark" href="size-runs.html">Request a Size Run</a>
-      </aside>
-    </section>
-  </main>
 
-  <div id="site-footer"></div>
-<script src="js/products.js"></script>
-<script src="js/cart.js"></script>
-<script src="js/layout.js"></script>
-<script src="js/shop.js"></script>
+    <section class="shop-section">
+      <h2> Choose one of these Holiday Designs for your show or let us create something different for you.</h2>
+      <p>These Holiday Designs can be completely customized to fit your show.</p>
+      <p>Pricing is determined by the shirt color,
+        style, and number of ink colors used in the design.</p>
+      <p class="holiday-note">
+                The shirt colors and ink counts below
+                reflect examples from the original
+                catalog. Final options and quotes
+                are confirmed with DAWOBAZ.
+            </p>
+
+            <a href="custom-design.html"
+               class="button button-dark">
+                Request Custom Artwork
+            </a>
+
+        </section>
+
+
+        <!-- =====================================
+             COLLECTION SELECTOR
+        ====================================== -->
+
+        <div class="holiday-toolbar">
+
+            <label for="holiday-series-select">
+                Jump to a collection
+            </label>
+
+            <select id="holiday-series-select">
+
+                <option value="">
+                    Choose a series
+                </option>
+
+                <option value="series-2600">
+                    2600 Series
+                </option>
+
+                <option value="series-2500">
+                    2500 Series
+                </option>
+
+                <option value="series-2400">
+                    2400 Series
+                </option>
+
+                <option value="series-2300">
+                    2300 Series
+                </option>
+
+                <option value="series-2200">
+                    2200 Series
+                </option>
+
+                <option value="series-2000">
+                    2000 Series
+                </option>
+
+                <option value="series-1900">
+                    1900 Series
+                </option>
+
+                <option value="series-1800">
+                    1800 Series
+                </option>
+
+                <option value="series-1700">
+                    1700 Series
+                </option>
+
+                <option value="series-1600">
+                    1600 Series
+                </option>
+
+                <option value="series-1500">
+                    1500 Series
+                </option>
+
+                <option value="series-1400">
+                    1400 Series
+                </option>
+
+                <option value="series-stfz">
+                    STFZ Designs
+                </option>
+
+                <option value="series-1300">
+                    1300 Series
+                </option>
+
+                <option value="series-1100">
+                    1100 Series
+                </option>
+
+                <option value="series-1000">
+                    1000 Series
+                </option>
+
+                <option value="series-900">
+                    900 Series
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- =====================================
+             HOLIDAY PRODUCT CATALOG
+        ====================================== -->
+
+        <div class="holiday-catalog">
+
+            <!--
+                All Holiday Designs will be
+                generated here automatically.
+
+                js/holiday.js reads the products
+                from window.DAWOBAZ_PRODUCTS
+                inside js/product.js.
+            -->
+
+            <div id="holiday-catalog"></div>
+
+        </div>
+
+
+        <!-- =====================================
+             CUSTOM DESIGN REQUEST
+        ====================================== -->
+
+        <aside class="shop-help holiday-cta">
+
+            <h2>
+                Have a Holiday Design in Mind?
+            </h2>
+
+            <p>
+                Share the design number, your studio
+                name, theme, and garment preferences.
+                Contact us for a custom quote.
+            </p>
+
+            <a href="custom-design.html"
+               class="button button-dark">
+                Request Artwork
+            </a>
+
+            <a href="size-runs.html"
+               class="button button-dark">
+                Request a Size Run
+            </a>
+
+        </aside>
+
+    </main>
+
+
+    <!-- Shared Footer -->
+    <div id="site-footer"></div>
+
+
+    <!-- =====================================
+         JAVASCRIPT FILES
+    ====================================== -->
+
+    <!-- Order List -->
+    <script src="js/cart.js"></script>
+
+    <!-- Shared Header and Footer -->
+    <script src="js/layout.js"></script>
+
+    <!-- Product Database -->
+    <script src="js/product.js"></script>
+
+    <!-- Holiday Catalog Renderer -->
+    <script src="js/holiday.js"></script>
+
 </body>
 </html>
