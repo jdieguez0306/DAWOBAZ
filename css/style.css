@@ -1760,12 +1760,24 @@ button {
     margin: 0 auto;
     padding: 60px 30px 80px;
 }
+.feature-section h2 {
+    text-transform: uppercase;
+    color: var(--black);
+    font-size: 45px;
+    text-align: center;
+}
 
 .feature-grid {
-    margin: 40px 0;
+    margin: 5px 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     gap: 24px;
+}
+.feature-grid benefit {
+    padding: 28px;
+    text-align: center;
+    border-radius: 12px;
+    background: var(--white);
 }
 
 .feature-grid article {
@@ -2074,7 +2086,7 @@ button {
         url("../images/Holiday/holiday_header3.gif");
 
     background-size: cover;
-    background-position: center;
+    /*background-position: center;*/
     background-repeat: no-repeat;
 
     min-height: 350px;
@@ -2103,12 +2115,12 @@ button {
     margin: 0;
 
     color: white;
-    font-size: 0.85rem;
-    font-weight: 600;
+    font-size: 1.125rem;
+    font-weight: 700;
 }
 
 .holiday-banner .breadcrumb a {
-    color: #ff91c6;
+    color: #f10d7b;
     text-decoration: none;
 }
 
@@ -2135,23 +2147,23 @@ button {
 
 .holiday-intro {
     max-width: 950px;
-    margin: 65px auto 45px;
+    margin: 20px auto 10px;
     padding: 0 24px;
     text-align: center;
 }
 
 .holiday-intro h2 {
-    color: var(--holiday-dark);
+    color: var(--holiday-pink);
     font-size: clamp(1.6rem, 3vw, 2.4rem);
-    font-weight: 800;
-    margin-bottom: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
 }
 
 .holiday-intro p {
     color: var(--holiday-text);
-    font-size: 1rem;
-    line-height: 1.8;
-    margin-bottom: 20px;
+    font-size: 1.125rem;
+    line-height: 2;
+    margin-bottom: 5px;
 }
 
 .holiday-intro .holiday-note {
@@ -2174,10 +2186,10 @@ button {
 
     text-decoration: none;
     font-size: 0.9rem;
-    font-weight: 700;
+    font-weight: 800;
 
     border: none;
-    border-radius: 8px;
+    border-radius: 5px;
 
     transition:
         background 0.2s ease,
@@ -2188,7 +2200,7 @@ button {
 .holiday-design-card .button:hover,
 .holiday-cta .button:hover {
     background: #c82e74;
-    transform: translateY(-2px);
+    transform: translateY(-3px);
 }
 
 /* ==========================================
@@ -2197,7 +2209,7 @@ button {
 
 .holiday-toolbar {
     max-width: 1200px;
-    margin: 0 auto 45px;
+    margin: 0 auto 40px;
     padding: 24px;
 
     display: flex;
@@ -2490,5 +2502,52 @@ button {
     .holiday-cta {
         margin: 0 16px 50px;
         padding: 30px 18px;
+    }
+}
+
+
+/* ==========================================
+   STUDIO STORE - HOW IT WORKS INFOGRAPHIC
+========================================== */
+
+.studio-how-it-works {
+    width: 100%;
+    padding: 45px 20px 65px;
+    background: #ffffff;
+}
+
+.studio-how-it-works-container {
+    width: 100%;
+    max-width: 1450px;
+    margin: 0 auto;
+}
+
+.studio-steps-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+/* Tablet */
+
+@media (max-width: 768px) {
+    .studio-how-it-works {
+        padding: 30px 12px 45px;
+    }
+
+    .studio-steps-image {
+        border-radius: 8px;
+        position: relative;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 480px) {
+    .studio-how-it-works {
+        padding: 20px 8px 35px;
+        position: relative;
     }
 }
